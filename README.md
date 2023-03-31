@@ -2,7 +2,7 @@
  * @Author: Ceoifung
  * @Date: 2023-03-31 10:21:49
  * @LastEditors: Ceoifung
- * @LastEditTime: 2023-03-31 15:16:52
+ * @LastEditTime: 2023-03-31 15:59:20
  * @Description: XiaoRGEEK All Rights Reserved. Copyright © 2023
 -->
 # 吾生也有涯
@@ -12,7 +12,7 @@
 ### 更新日志
 #### 2023-3-31
 - 初始搭建网站
-
+- 增加openwrt和滴滴车窗开发记录文档
 ### 安装
 
 ```
