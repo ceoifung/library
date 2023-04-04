@@ -48,6 +48,25 @@ catkin_make --pkg astra_camera
 ```
 
 ### 编译过程中遇到的问题
+#### No rule to make target '/usr/lib/aarch64-linux-gnu/libopencv_objdetect.so.3.2.0'
+```shell
+make[2]: *** No rule to make target '/usr/lib/aarch64-linux-gnu/libopencv_objdetect.so.3.2.0', needed by '/home/xrrobot/catkin_ws/devel/lib/astra_camera/cleanup_shm_node'.  Stop.
+CMakeFiles/Makefile2:6701: recipe for target 'ros_astra_camera/CMakeFiles/cleanup_shm_node.dir/all' failed
+make[1]: *** [ros_astra_camera/CMakeFiles/cleanup_shm_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make[2]: *** No rule to make target '/usr/lib/aarch64-linux-gnu/libopencv_objdetect.so.3.2.0', needed by '/home/xrrobot/catkin_ws/devel/lib/libastra_camera.so'.  Stop.
+CMakeFiles/Makefile2:7499: recipe for target 'ros_astra_camera/CMakeFiles/astra_camera.dir/all' failed
+make[1]: *** [ros_astra_camera/CMakeFiles/astra_camera.dir/all] Error 2
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2
+Invoking "make -j4 -l4" failed
+```
+
+- 解决方法
+[参考链接](https://github.com/ros-perception/depthimage_to_laserscan/issues/41)
+```shell
+sudo apt install libopencv3.2
+```
 #### libuvc is not found
 ```shell
 CMake Error at /usr/share/cmake-3.10/Modules/FindPkgConfig.cmake:649 (message):
@@ -65,6 +84,7 @@ sudo apt install ros-melodic-rgbd-launch ros-melodic-libuvc ros-melodic-libuvc-c
 sudo ldconfig
 
 # 如果还是不行，那么安装如下方法，重新编译libuvc
+# 嫌仓库太慢，可以使用gitee https://gitee.com/ceoifung/libuvc
 git clone https://github.com/ktossell/libuvc
 cd libuvc
 mkdir build

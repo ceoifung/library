@@ -3,7 +3,7 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
+const path = require('path')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '吾生也有涯',
@@ -57,7 +57,52 @@ const config = {
       }),
     ],
   ],
-
+  plugins: [
+    // '@aldridged/docusaurus-plugin-lunr',
+     require.resolve('docusaurus-lunr-search'),
+    // [
+    //   require.resolve("@easyops-cn/docusaurus-search-local"),
+    //   ({
+    //     hashed: true,
+    //     indexPages: true
+    //   }),
+    // ],
+    'docusaurus-plugin-image-zoom',
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        disableInDev: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: true,
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'icon',
+            href: '/img/logo.png',
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/manifest.json',
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: 'rgb(51 139 255)',
+          },
+        ],
+      },
+    ],
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -69,6 +114,8 @@ const config = {
           alt: 'My Site Logo',
           src: 'img/docusaurus-logo.jpg',
         },
+        // 滑动的时候隐藏标题栏
+        hideOnScroll: true,
         items: [
           {
             type: 'docSidebar',
@@ -137,6 +184,14 @@ const config = {
       tableOfContents: {
         minHeadingLevel: 2,
         maxHeadingLevel: 5,
+      },
+      zoom: {
+        selector: '.markdown :not(em) > img',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)',
+        },
+        config: {},
       },
     }),
 };

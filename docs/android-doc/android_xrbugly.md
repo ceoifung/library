@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ceoifung
+ * @Date: 2023-03-31 13:47:37
+ * @LastEditors: Ceoifung
+ * @LastEditTime: 2023-04-04 16:10:13
+ * @Description: XiaoRGEEK All Rights Reserved. Copyright © 2023
+-->
 ---
 sidebar_position: 1
 title: Android xrbugly更新插件
@@ -72,7 +79,10 @@ http://bugly.xiao-r.com
 
 ### 升级地址
 默认情况下，检查软件升级的API接口如下
+```html
 http://bugly.xiao-r.com/api/checkUpdate
+```
+
 
 ## XRUpdaterServices
 XRUpdaterService是配对xrbugly的软件升级前端以及后端平台，其代码托管在：https://gitee.com/ceoifung/xrupdater-service

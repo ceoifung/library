@@ -2,7 +2,7 @@
  * @Author: Ceoifung
  * @Date: 2023-03-31 10:21:49
  * @LastEditors: Ceoifung
- * @LastEditTime: 2023-04-03 17:48:24
+ * @LastEditTime: 2023-04-04 17:01:59
  * @Description: XiaoRGEEK All Rights Reserved. Copyright © 2023
 -->
 # 吾生也有涯
@@ -10,6 +10,8 @@
 这是使用Docusaurus 2创建的个人知识网站
 
 ### 更新日志
+#### 2023-4-4
+- 增加本地搜索功能
 #### 2023-4-3
 - 增加hexapod ros一章节学习描述
 

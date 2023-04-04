@@ -2,8 +2,10 @@
 sidebar_position: 1
 title: Cuda版本的OpenCV部署
 ---
-
+:::tip
 在使用media-pipe相关框架的时候，如果直接跑的opencv，jetson nano会默认使用cpu来跑，这样会导致画面卡顿，效果不佳，因此需要编译opencv cuda版本以及media-pipe的cuda版本，也就是GPU版本。由于这方面的工作之前已经在国产nano的ROS系统中编译好了，推荐直接从国产的nano系统中，复制media-pipe的cuda版本到python3的安装目录下，而opencv的cuda版本则需要重新编译
+:::
+
 
 ## 安装opencv-contrib-python cuda版本
 
@@ -230,10 +232,7 @@ W: An error occurred during the signature verification. The repository is not up
 ```shell
 sudo apt-key del 421C365BD9FF1F717815A3895523BAEEB01FA116
 sudo -E apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-
 ```
-
-
 
 - 报错
 
@@ -253,7 +252,12 @@ sudo vim /etc/apt/sources.list.d/hzwhuang-ubuntu-ss-qt5-bionic.list
 sudo apt-get update
 ```
 
-
+- 报错
+```shell
+fatal error: boostdesc_bgm.i:No such file or directory
+```
+- 解决方法
+https://blog.csdn.net/ben_xiao_hai_123/article/details/126262891 将相关的文件下载下来，放到指定的目录下，然后重新编译即可
 
 ## 安装media-pipe cuda版本
 
@@ -271,7 +275,6 @@ pip3 install mediapipe-0.8.5_cuda102-cp36-cp36m-linux_aarch64.whl
 
 ```shell
 protobuf requires Python '>=3.7' but the running Python is 3.6.9
-
 ```
 
 解决方法
@@ -295,7 +298,12 @@ pip3 install mediapipe-0.8.5_cuda102-cp36-cp36m-linux_aarch64.whl
 ```
 
 - 解决方法：安装skbuild
-
+```shell
+# pip2
+pip install scikit-build -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+# pip3
+pip3 install scikit-build -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+```
 
 ## 安装python3 cv_bridge
 
