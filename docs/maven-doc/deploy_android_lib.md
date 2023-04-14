@@ -15,13 +15,17 @@ title: android库发布
 
 ## maven配置
 在module的build.gradle中，添加类似的内容
+- 添加maven-publish插件
 ```bash
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    ...
     id 'maven-publish'
 }
 // 添加id 'maven-publish'
+```
+
+- 添加打包发布配置
+```bash
 //打包main目录下代码和资源的 task
 task androidSourcesJar(type: Jar) {
     classifier = 'sources'
@@ -39,7 +43,8 @@ afterEvaluate {
                 // groupId，按需修改
                 groupId = "com.xiaor.roboticview"
                 artifactId = 'roboticview'
-                version = '1.0.1'
+                // 版本号
+                version = '1.0.0'
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {
@@ -48,7 +53,7 @@ afterEvaluate {
 
                 groupId = "com.xiaor.roboticview"
                 artifactId = 'roboticview'
-                version = '1.0.1-SNAPSHOT'
+                version = '1.0.0-SNAPSHOT'
             }
         }
         repositories {
@@ -57,14 +62,14 @@ afterEvaluate {
                 name = "xr_maven"
                 allowInsecureProtocol true
                 // 要推送的url
-                url "http://localhost:8081/repository/xr_maven/"
+                url "http://192.168.3.109:9000/repository/xr_maven/"
                 //nexus3没有开启匿名用户访问的话，添加认证信息
                 credentials {
                     username = "admin"
                     password = "xiaorgeek001?"
                 }
-                def releasesRepoUrl = "http://localhost:8081/repository/xr_maven/"
-                def snapshotsRepoUrl = "http://localhost:8081/repository/xr_maven-snapshots/"
+                def releasesRepoUrl = "http://192.168.3.109:9000/repository/xr_maven/"
+                def snapshotsRepoUrl = "http://192.168.3.109:9000/repository/xr_maven-snapshots/"
                 url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
 
             }
