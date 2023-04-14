@@ -54,17 +54,17 @@ afterEvaluate {
         repositories {
             maven {
                 // 仓库名字
-                name = "xiaor_maven"
+                name = "xr_maven"
                 allowInsecureProtocol true
                 // 要推送的url
-                url "http://localhost:8081/repository/xiaor_maven/"
+                url "http://localhost:8081/repository/xr_maven/"
                 //nexus3没有开启匿名用户访问的话，添加认证信息
                 credentials {
                     username = "admin"
-                    password = "123456"
+                    password = "xiaorgeek001?"
                 }
-                def releasesRepoUrl = "http://localhost:8081/repository/xiaor_maven/"
-                def snapshotsRepoUrl = "http://localhost:8081/repository/xiaor_maven-snapshots/"
+                def releasesRepoUrl = "http://localhost:8081/repository/xr_maven/"
+                def snapshotsRepoUrl = "http://localhost:8081/repository/xr_maven-snapshots/"
                 url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
 
             }
@@ -88,15 +88,11 @@ afterEvaluate {
 ```shell
 maven {
     allowInsecureProtocol true
-    url 'http://localhost:8081/repository/xiaor_maven/'
-    credentials {
-        username = "admin"
-        password = "123456"
-    }
+    url 'http://localhost:9000/repository/xr_maven/'
 }
 ```
 然后再app的build.gradle上添加
 ```shell
- implementation("com.xiaor.roboticview:roboticview:1.0.1")
+ implementation("com.xiaor.roboticview:roboticview:1.0.0")
 ```
 到这里，一整个android 库私有maven发布的教程就完成了，接下来看npm仓库怎么发布

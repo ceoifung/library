@@ -17,3 +17,13 @@ title: 创建Maven仓库
 可以看到仓库的地址: `http://localhost:8081/repository/xiaor_maven`
 
 ![](./images/微信图片_20230410170254.png)
+
+## 我们自己的maven仓库地址
+```xml
+http://192.168.3.109:9000/repository/xr_maven/
+```
+:::note
+用户名：admin
+密码：xiaorgeek001?
+:::
+支持匿名访问

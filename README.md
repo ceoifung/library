@@ -2,7 +2,7 @@
  * @Author: Ceoifung
  * @Date: 2023-03-31 10:21:49
  * @LastEditors: Ceoifung
- * @LastEditTime: 2023-04-04 17:01:59
+ * @LastEditTime: 2023-04-14 15:39:04
  * @Description: XiaoRGEEK All Rights Reserved. Copyright © 2023
 -->
 # 吾生也有涯
@@ -10,6 +10,9 @@
 这是使用Docusaurus 2创建的个人知识网站
 
 ### 更新日志
+#### 2023-4-14
+- 增加了python pi仓库上传的教程
+- 更新修改了提交android仓库代码的文档
 #### 2023-4-10
 - 添加maven私有仓库搭建教程
 - 添加六足ros功能搭建教程

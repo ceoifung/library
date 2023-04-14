@@ -83,45 +83,45 @@ buttons: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 #### 初始各个关节的角度分配
 | 关节名称   |      alpha      |  beta | gamma |
 |----------|:-------------:|------:|------:|
-| 右前腿 |  90| 60 | 120 |
-| 右中腿 |  90| 60 | 120 |
-| 右后腿 |  90| 60 | 120 |
-| 左前腿 |  90| 120 | 60 |
-| 左中腿 |  90| 120 | 60 |
-| 左后腿 |  90| 120 | 60 |
+| 右前腿 |  90| 90 | 90 |
+| 右中腿 |  90| 90 | 90 |
+| 右后腿 |  90| 90 | 90 |
+| 左前腿 |  90| 90 | 90 |
+| 左中腿 |  90| 90 | 90 |
+| 左后腿 |  90| 90 | 90 |
 
 
 ### SERVOS
 
 ```yaml
 SERVOS: {
-    '01': {name: coxa_joint_RR, type: DS, id: 8, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees 0},
-    '02': {name: femur_joint_RR, type: DS, id: 9, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees 14},
-    '03': {name: tibia_joint_RR, type: DS, id: 10, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees -48},
-    '04': {name: coxa_joint_RM, type: DS, id: 2, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees 0},
-    '05': {name: femur_joint_RM, type: DS, id: 3, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees 14},
-    '06': {name: tibia_joint_RM, type: DS, id: 4, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees -48},
-    '07': {name: coxa_joint_RF, type: DS, id: 5, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees 0},
-    '08': {name: femur_joint_RF, type: DS, id: 6, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees 14},
-    '09': {name: tibia_joint_RF, type: DS, id: 7, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees -48},
-    '10': {name: coxa_joint_LR, type: DS, id: 17, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
-    '11': {name: femur_joint_LR, type: DS, id: 18, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
-    '12': {name: tibia_joint_LR, type: DS, id: 19, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
-    '13': {name: coxa_joint_LM, type: DS, id: 11, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
-    '14': {name: femur_joint_LM, type: DS, id: 12, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
-    '15': {name: tibia_joint_LM, type: DS, id: 13, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
-    '16': {name: coxa_joint_LF, type: DS, id: 14, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
-    '17': {name: femur_joint_LF, type: DS, id: 15, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
-    '18': {name: tibia_joint_LF, type: DS, id: 16, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
-    '19': {name: pan_joint, type: DS, id: 19, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
-    '20': {name: tilt_joint, type: DS, id: 20, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0}
+    '01': {name: coxa_joint_RR, type: DS, id: 8, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    '02': {name: femur_joint_RR, type: DS, id: 9, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '03': {name: tibia_joint_RR, type: DS, id: 10, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
+    '04': {name: coxa_joint_RM, type: DS, id: 2, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    '05': {name: femur_joint_RM, type: DS, id: 3, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '06': {name: tibia_joint_RM, type: DS, id: 4, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
+    '07': {name: coxa_joint_RF, type: DS, id: 5, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    '08': {name: femur_joint_RF, type: DS, id: 6, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '09': {name: tibia_joint_RF, type: DS, id: 7, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
+    '10': {name: coxa_joint_LR, type: DS, id: 17, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    '11': {name: femur_joint_LR, type: DS, id: 18, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '12': {name: tibia_joint_LR, type: DS, id: 19, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
+    '13': {name: coxa_joint_LM, type: DS, id: 11, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    '14': {name: femur_joint_LM, type: DS, id: 12, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '15': {name: tibia_joint_LM, type: DS, id: 13, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
+    '16': {name: coxa_joint_LF, type: DS, id: 14, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    '17': {name: femur_joint_LF, type: DS, id: 15, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '18': {name: tibia_joint_LF, type: DS, id: 16, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
+    # '19': {name: pan_joint, type: DS, id: 19, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    # '20': {name: tilt_joint, type: DS, id: 20, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0}
 }
 ```
 其中各个字段的代表的含义如下
 - name: 关节的名字
 - type: 舵机型号参数名字
 - id: 对应的舵机ID号
-- ticks: 舵机总的分辨率
+- ticks: 舵机总的分辨率，默认的角度范围是-135~+135，刚好是270度，另外舵机的每次转动的分辨率是0.1度，所以乘以10，即是2700，0度是1350，所以90度是2250，另外舵机在物理上没有反向安装，所以sign都为1
 - center: 0度位置
 - max_radians: 最大的转动角度，默认为270度
 - sign: 舵机是否物理上反向安装
