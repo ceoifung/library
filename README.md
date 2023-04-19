@@ -2,7 +2,7 @@
  * @Author: Ceoifung
  * @Date: 2023-03-31 10:21:49
  * @LastEditors: Ceoifung
- * @LastEditTime: 2023-04-14 15:39:04
+ * @LastEditTime: 2023-04-19 18:45:42
  * @Description: XiaoRGEEK All Rights Reserved. Copyright © 2023
 -->
 # 吾生也有涯
@@ -10,6 +10,8 @@
 这是使用Docusaurus 2创建的个人知识网站
 
 ### 更新日志
+#### 2023-4-19
+- 增加陀螺仪一章节
 #### 2023-4-14
 - 增加了python pi仓库上传的教程
 - 更新修改了提交android仓库代码的文档
