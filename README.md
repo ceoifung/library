@@ -2,7 +2,7 @@
  * @Author: Ceoifung
  * @Date: 2023-03-31 10:21:49
  * @LastEditors: Ceoifung
- * @LastEditTime: 2023-04-19 18:45:42
+ * @LastEditTime: 2023-05-04 14:31:10
  * @Description: XiaoRGEEK All Rights Reserved. Copyright © 2023
 -->
 # 吾生也有涯
@@ -10,6 +10,10 @@
 这是使用Docusaurus 2创建的个人知识网站
 
 ### 更新日志
+#### 2023-5-4
+- 修改编辑的地址为`http://192.168.3.249:8081/ceoifung/library/blob/master/`
+- 测试内容发布正常
+
 #### 2023-4-19
 - 增加陀螺仪一章节
 #### 2023-4-14

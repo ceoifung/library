@@ -42,14 +42,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://192.168.3.249:8081/ceoifung/library/tree/master/',
+            'http://192.168.3.249:8081/ceoifung/library/blob/master/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://gitee.com/ceoifung/wiki/tree/master/',
+            'http://192.168.3.249:8081/ceoifung/library/blob/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
