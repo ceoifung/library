@@ -24,8 +24,8 @@ rosrun mpu_gy85 mpu_gy85_node
 ```xml
 <launch>
 	<node pkg="mpu_gy85" name="mpu_gy85_node" type="mpu_gy85_node" output="screen">
-  <!-- 设置i2c设备 -->
-		<param name="device" value="/dev/i2c-1"/>
+  <!-- 设置i2c设备, bus代表总线的ID，默认是1，可以通过修改这里设置总线 -->
+		<param name="bus" value="1"/>
 	</node>
 </launch>
 
@@ -44,20 +44,32 @@ rosrun mpu_gy85 mpu_gy85_node
 #define ACCEL_ZOUT_H 0x36 // High byte of Z-axis acceleration data
 #define ACCEL_ZOUT_L 0x37 // Low byte of Z-axis acceleration data
 
-// 以下是伪代码
-// 初始化加速度计
-void init(){
-   // 唤醒设备
-    int addr = ACCL_PWR;
-    write(fd, &addr, 0);
-    write(fd, &addr, 8);
-    // 设置数据格式
-    int dataAddr = ACCL_DATA_FORMAT;
-    write(fd, &dataAddr, 0);
-    write(fd, &dataAddr, 11);
+int Gy85::initAccel(int bus)
+{
+    adxlBus = ceoifung::I2cPort(bus, ACCEL_ADDR);
+    adxlBus.setBusAddress(bus);
+    adxlBus.setDeviceAddress(ACCEL_ADDR);
+    int ret = adxlBus.openConnection();
+    if (ret != 0)
+        return -1;
+    adxlBus.writeByte(ACCL_PWR, 0);
+    adxlBus.writeByte(ACCL_PWR, 8);
+    adxlBus.writeByte(ACCL_DATA_FORMAT, 0);
+    adxlBus.writeByte(ACCL_DATA_FORMAT, 11);
+    return 0;
 }
 
 ```
+
+:::tip
+数据处理
+```cpp
+ret = adxlBus.readByteBuffer(ACCEL_XOUT_H, read_buf, 6);
+data[0] = (short)((read_buf[1] << 8) | read_buf[0]);
+data[1] = (short)((read_buf[3] << 8) | read_buf[2]);
+data[2] = (short)((read_buf[5] << 8) | read_buf[4]);
+```
+:::
 
 - 陀螺仪的寄存器地址
 ```cpp
@@ -73,13 +85,42 @@ void init(){
 
 // 以下是伪代码
 // 初始化陀螺仪
-void init(){
-    uint8_t data = 0; // Create a variable to store the data to write
-    uint8_t addr = PWR_MGMT_1;
-    write(fd, &addr, 1); // Write the address of the power management register to the device
-    write(fd, &data, 1); // Write the data (0) to wake up the device
+int Gy85::initItg3205(int bus)
+{
+    itgBus = ceoifung::I2cPort(bus, ITG_3205_ADDR);
+    itgBus.setBusAddress(bus);
+    itgBus.setDeviceAddress(ITG_3205_ADDR);
+    int ret = itgBus.openConnection();
+    if (ret != 0)
+    {
+        return -1;
+    }
+    itgBus.writeByte(PWR_MGMT_1, 0);
+    // 0x15
+    itgBus.writeByte(ITG_3205_SMPLRT_DIV, 0x07 | 0x00);
+    itgBus.writeByte(ITG_3205_DLPF_FS, ITG_3205_FS_SEL_2000_DEG_SEC | 0x01);
+    itgBus.writeByte(ITG_3205_INT_CFG, 0x00);
+    itgBus.writeByte(0x17, 0x20 | 0x04 | 0x01);
+    return 0;
 }
 ```
+
+:::tip
+处理获取到的陀螺仪数据的时候，需要注意数据的高位和低位的问题
+```cpp
+// 陀螺仪数据获取
+ret = itgBus.readByteBuffer(ITG_3205_REG_XL, read_buf, 6);
+data[0] = (short)((read_buf[0] << 8) | read_buf[1]);
+data[1] = (short)((read_buf[2] << 8) | read_buf[3]);
+data[2] = (short)((read_buf[4] << 8) | read_buf[5]);
+if (data[0] & (1 << 16 - 1))
+	data[0] = data[0] - (1 << 16);
+if (data[1] & (1 << 16 - 1))
+	data[1] = data[1] - (1 << 16);
+if (data[2] & (1 << 16 - 1))
+	data[2] = data[2] - (1 << 16);
+```
+:::
 
 ## python测试代码
 以下代码可能存在问题，因此在实际运用的时候，需要酌情修改一下
