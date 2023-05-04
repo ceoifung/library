@@ -7,7 +7,7 @@ stages:
 test:
   stage: test
   script:
-  - yarn install
+  - yarn
   - yarn build
   except:
     - master
@@ -15,9 +15,9 @@ test:
 pages:
   stage: deploy
   script:
-  - yarn install
+  - yarn
   - yarn build
-  - mv ./build ../public
+  - mv ./build ./public
   artifacts:
     paths:
     - public
