@@ -14,7 +14,7 @@ const config = {
   url: 'http://192.168.3.249/ceoifung/library/public/#/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/ceoifung/library/public/',
+  baseUrl: './',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
