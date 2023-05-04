@@ -11,10 +11,10 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'http://192.168.3.249/ceoifung/library/public/#/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/ceoifung/library/public/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -42,7 +42,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://gitee.com/ceoifung/wiki/tree/master/',
+            'https://192.168.3.249:8081/ceoifung/library/tree/master/',
         },
         blog: {
           showReadingTime: true,
@@ -87,12 +87,12 @@ const config = {
           {
             tagName: 'link',
             rel: 'icon',
-            href: '/img/logo.png',
+            href: 'img/logo.png',
           },
           {
             tagName: 'link',
             rel: 'manifest',
-            href: '/manifest.json',
+            href: 'manifest.json',
           },
           {
             tagName: 'meta',
