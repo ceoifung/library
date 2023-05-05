@@ -2,7 +2,7 @@
  * @Author: Ceoifung
  * @Date: 2023-03-31 10:21:49
  * @LastEditors: Ceoifung
- * @LastEditTime: 2023-04-04 16:25:05
+ * @LastEditTime: 2023-05-05 10:55:40
  * @Description: XiaoRGEEK All Rights Reserved. Copyright © 2023
  */
 import React from 'react';
@@ -13,6 +13,7 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
+import { Redirect } from 'react-router-dom';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -34,16 +35,19 @@ function HomepageHeader() {
   );
 }
 
+// export default function Home() {
+//   const {siteConfig} = useDocusaurusContext();
+//   return (
+//     <Layout
+//       title={`${siteConfig.title}，而知也无涯，也有涯随无涯，殆矣`}
+//       description="Description will go into a meta tag in <head />">
+//       <HomepageHeader />
+//       <main>
+//         <HomepageFeatures />
+//       </main>
+//     </Layout>
+//   );
+// }
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      title={`${siteConfig.title}，而知也无涯，也有涯随无涯，殆矣`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
-  );
+  return <Redirect to={process.env.NODE_ENV == 'development' ?'/docs/intro':'/ceoifung/library/public/docs/intro'} />;
 }

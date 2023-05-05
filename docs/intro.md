@@ -12,4 +12,11 @@ sidebar_position: 0
 子曰：学而时习之，不亦乐乎
 
 老子曰：合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下
+<!-- ```jsx
+import {ProjectCard} from "../src/components/Project/index.js"
 
+<ProjectCard link="./openwrt-doc/deploy_uboot">测试</ProjectCard>
+```
+import {ProjectCard} from "../src/components/Project/index.js"
+
+<ProjectCard>测试</ProjectCard> -->

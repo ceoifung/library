@@ -14,7 +14,7 @@ const config = {
   url: 'http://192.168.3.249/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/ceoifung/library/public/',
+  baseUrl: process.env.NODE_ENV == 'development' ? '/' : "/ceoifung/library/public",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -59,7 +59,7 @@ const config = {
   ],
   plugins: [
     // '@aldridged/docusaurus-plugin-lunr',
-     require.resolve('docusaurus-lunr-search'),
+    require.resolve('docusaurus-lunr-search'),
     // [
     //   require.resolve("@easyops-cn/docusaurus-search-local"),
     //   ({
@@ -123,7 +123,7 @@ const config = {
             position: 'left',
             label: '文档',
           },
-          {to: '/blog', label: '博客', position: 'left'},
+          { to: '/blog', label: '博客', position: 'left' },
           {
             href: 'https://github.com/ceoifung',
             label: 'GitHub',

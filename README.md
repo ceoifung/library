@@ -2,7 +2,7 @@
  * @Author: Ceoifung
  * @Date: 2023-03-31 10:21:49
  * @LastEditors: Ceoifung
- * @LastEditTime: 2023-05-04 14:31:10
+ * @LastEditTime: 2023-05-05 11:14:49
  * @Description: XiaoRGEEK All Rights Reserved. Copyright © 2023
 -->
 # 吾生也有涯
@@ -10,6 +10,9 @@
 这是使用Docusaurus 2创建的个人知识网站
 
 ### 更新日志
+#### 2023-5-5
+- 增加控件`ProjectCard`
+- 修改本地调试以及全局配置跟路由，不在展示首页，直接跳转到项目入口
 #### 2023-5-4
 - 修改编辑的地址为`http://192.168.3.249:8081/ceoifung/library/blob/master/`
 - 测试内容发布正常
