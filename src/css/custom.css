@@ -37,8 +37,8 @@
   height: 120px;
   text-align: left;
   padding: 0.2rem;
-  color: black;
-  background-color: #fff;
+  color: var(--ifm-heading-color);;
+  background-color: var(--ifm-background-surface-color);
   /* border-color: #1a8870; */
   border: 1px solid rgba(255, 254, 254, 0.19);
   margin: 5px;
@@ -63,7 +63,7 @@ a{
   /* border-color: var(--ifm-link-hover-color); */
   border: 1px solid var(--ifm-color-primary);
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.19);
-  color: black;
+  color: var(--ifm-heading-color);;
 }
 
 .box-class-title {
