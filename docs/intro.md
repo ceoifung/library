@@ -12,7 +12,15 @@ import {ProjectCard} from "../src/components/Project/index.js"
 <ProjectCard link="./openwrt-doc/deploy_uboot">测试</ProjectCard>
 ```
 -->
-import {ProjectDoubleCard} from "../src/components/Project/index.js"
+import {ProjectDoubleCard, ProjectCard} from "../src/components/Project/index.js"
+
+<ProjectCard
+     children={{
+        title: "hexapod开发笔记",
+        description: "有关多足开发的一些笔记内容够",
+        link: "./category/hexapod开发笔记"
+    }}
+></ProjectCard>
 
 <ProjectDoubleCard
     children={{

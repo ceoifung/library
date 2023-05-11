@@ -78,41 +78,45 @@ buttons: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 ### 舵机ID分配图
 
-![舵机ID分配图](./images/hexapod_id.png)
+![舵机ID分配图](../jetsonnano/images/hexapod_id.png)
 
 #### 初始各个关节的角度分配
 | 关节名称   |      alpha      |  beta | gamma |
 |----------|:-------------:|------:|------:|
-| 右前腿 |  90| 90 | 90 |
-| 右中腿 |  90| 90 | 90 |
-| 右后腿 |  90| 90 | 90 |
-| 左前腿 |  90| 90 | 90 |
-| 左中腿 |  90| 90 | 90 |
-| 左后腿 |  90| 90 | 90 |
+| 右前腿 |  0| 0 | 0 |
+| 右中腿 |  0| 0 | 0 |
+| 右后腿 |  0| 0 | 0 |
+| 左前腿 |  0| 0 | 0 |
+| 左中腿 |  0| 0 | 0 |
+| 左后腿 |  0| 0 | 0 |
 
 
 ### SERVOS
+:::tip
+测试中发现六足行进的姿态不对，可以参考这里[**修改步态映射**](./deploy_hexapod_cmd_vel#修改hexapod_controller)
+:::
 
 ```yaml
+# Servo descriptions
 SERVOS: {
-    '01': {name: coxa_joint_RR, type: DS, id: 8, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
-    '02': {name: femur_joint_RR, type: DS, id: 9, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
-    '03': {name: tibia_joint_RR, type: DS, id: 10, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
-    '04': {name: coxa_joint_RM, type: DS, id: 2, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
-    '05': {name: femur_joint_RM, type: DS, id: 3, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
-    '06': {name: tibia_joint_RM, type: DS, id: 4, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
-    '07': {name: coxa_joint_RF, type: DS, id: 5, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
-    '08': {name: femur_joint_RF, type: DS, id: 6, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
-    '09': {name: tibia_joint_RF, type: DS, id: 7, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
-    '10': {name: coxa_joint_LR, type: DS, id: 17, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
-    '11': {name: femur_joint_LR, type: DS, id: 18, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
-    '12': {name: tibia_joint_LR, type: DS, id: 19, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
-    '13': {name: coxa_joint_LM, type: DS, id: 11, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
-    '14': {name: femur_joint_LM, type: DS, id: 12, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
-    '15': {name: tibia_joint_LM, type: DS, id: 13, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
-    '16': {name: coxa_joint_LF, type: DS, id: 14, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
-    '17': {name: femur_joint_LF, type: DS, id: 15, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
-    '18': {name: tibia_joint_LF, type: DS, id: 16, ticks: 2700, center: 2250, max_radians: !degrees 270, sign: 1, offset: !degrees -48},
+    '01': {name: coxa_joint_RR, type: DS, id: 8, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    '02': {name: femur_joint_RR, type: DS, id: 9, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '03': {name: tibia_joint_RR, type: DS, id: 10, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees -48},
+    '04': {name: coxa_joint_RM, type: DS, id: 2, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    '05': {name: femur_joint_RM, type: DS, id: 3, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '06': {name: tibia_joint_RM, type: DS, id: 4, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees -48},
+    '07': {name: coxa_joint_RF, type: DS, id: 5, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    '08': {name: femur_joint_RF, type: DS, id: 6, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '09': {name: tibia_joint_RF, type: DS, id: 7, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees -48},
+    '10': {name: coxa_joint_LR, type: DS, id: 17, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees 0},
+    '11': {name: femur_joint_LR, type: DS, id: 18, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '12': {name: tibia_joint_LR, type: DS, id: 19, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees -48},
+    '13': {name: coxa_joint_LM, type: DS, id: 11, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees 0},
+    '14': {name: femur_joint_LM, type: DS, id: 12, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '15': {name: tibia_joint_LM, type: DS, id: 13, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees -48},
+    '16': {name: coxa_joint_LF, type: DS, id: 14, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
+    '17': {name: femur_joint_LF, type: DS, id: 15, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 14},
+    '18': {name: tibia_joint_LF, type: DS, id: 16, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: -1, offset: !degrees -48},
     # '19': {name: pan_joint, type: DS, id: 19, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0},
     # '20': {name: tilt_joint, type: DS, id: 20, ticks: 2700, center: 1350, max_radians: !degrees 270, sign: 1, offset: !degrees 0}
 }

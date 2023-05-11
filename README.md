@@ -2,7 +2,7 @@
  * @Author: Ceoifung
  * @Date: 2023-03-31 10:21:49
  * @LastEditors: Ceoifung
- * @LastEditTime: 2023-05-06 12:53:47
+ * @LastEditTime: 2023-05-11 17:23:43
  * @Description: XiaoRGEEK All Rights Reserved. Copyright © 2023
 -->
 # 吾生也有涯
@@ -10,6 +10,9 @@
 这是使用Docusaurus 2创建的个人知识网站
 
 ### 更新日志
+#### 2023-5-13
+- 添加六足开发文档
+- 修复ProjectCard样式错误的问题
 #### 2023-5-6
 - 修改首页显示内容
 #### 2023-5-5
