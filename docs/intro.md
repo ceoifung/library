@@ -17,7 +17,7 @@ import {ProjectDoubleCard, ProjectCard} from "../src/components/Project/index.js
 <ProjectCard
      children={{
         title: "hexapod开发笔记",
-        description: "有关多足开发的一些笔记内容够",
+        description: "有关多足开发的一些笔记内容",
         link: "./category/hexapod开发笔记"
     }}
 ></ProjectCard>
@@ -25,7 +25,7 @@ import {ProjectDoubleCard, ProjectCard} from "../src/components/Project/index.js
 <ProjectDoubleCard
     children={{
         title: "jetsonnano开发笔记",
-        description: "有关jetson nano开发的一些笔记内容够",
+        description: "有关jetson nano开发的一些笔记内容",
         link: "./category/jetsonnano开发笔记"
     }}
     children1={{
