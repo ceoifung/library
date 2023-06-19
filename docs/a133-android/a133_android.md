@@ -846,7 +846,8 @@ ceres-c3:/ # logcat | grep 3101
 ```
 
 ## 十、设置为软件默认的launcher
-
+> 设置系统的默认launcher有两种方法，一种是直接使用adb公管局进入系统的内部，将原先的launcher文件后缀由`apk`改为`apk111`等，这种方法就是让系统将原先的launcher不识别为android安装包，这种方法的弊端是，每烧录一次固件就需要修改一次，设备一旦增多，修改起来很麻烦；另外一种方法是直接修改android的源码，将原先的launcher设置为android launcher的代码注释掉
+### adb shell修改launcher
 ```shell
 # 首先获取系统权限，可以参考Android App通过adb shell推送到系统中
 PS C:\Users\ccf19> adb shell # 进入终端
@@ -872,6 +873,43 @@ Launcher3QuickStepGo.apk
 mv Launcher3QuickStepGo.apk Launcher3QuickStepGo.apk111
 # 重启系统
 reboot
+```
+### 源码修改launcher
+- 修改AndroidManifest.xml
+```shell
+cd packages/apps/Launcher3
+# 修改AndroidManifest.xml
+gedit AndroidManifest.xml
+```
+将如下内容注释掉
+```xml
+<intent-filter>
+    <action android:name="android.intent.action.MAIN" />
+    <!-- 注释掉设置为launcher的属性 -->
+    <!--<category android:name="android.intent.category.HOME" /> -->
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.MONKEY"/>
+    <category android:name="android.intent.category.LAUNCHER_APP" />
+</intent-filter>
+```
+- 修改OverviewComponentObserver.java
+```shell
+cd packages/apps/Launcher3/quickstep/src/com/android/quickstep
+gedit OverviewComponentObserver.java
+```
+将带有`Intent.CATEGORY_HOME`注释掉
+```java
+// 修改OverviewComponentObserver(Context context)方法
+Intent myHomeIntent = new Intent(Intent.ACTION_MAIN)
+                //.addCategory(Intent.CATEGORY_HOME)
+                .setPackage(mContext.getPackageName());
+                
+// 修改updateOverviewTargets()方法
+//overviewIntentCategory = Intent.CATEGORY_HOME;
+overviewIntentCategory = Intent.CATEGORY_DEFAULT;
+mHomeIntent = new Intent(Intent.ACTION_MAIN)
+                  //  .addCategory(Intent.CATEGORY_HOME)
+                  .setComponent(defaultHome);
 ```
 
 ## 十一、隐藏系统的导航栏
