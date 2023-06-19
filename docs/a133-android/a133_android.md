@@ -16,6 +16,10 @@ title: Android10系统板开发
 mkdir ~/workspace/a133/ -p
 cd /home/szbaijie/workspace/a133/longan
 ./build.sh config
+# platform:0 android
+# ic:0，选择a133
+# board:3，选择c4
+# lcd: 选择最后一个xiaor_oled
 # 配置完之后，选择build.sh
 ./build.sh
 ```
