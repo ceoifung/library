@@ -7,6 +7,7 @@ title: Android10系统板开发
 | ---- | ------------- | ------ | ----------------------- |
 | V1.0 | 2023年2月22日 | 陈超锋 | 初版释放                |
 | v1.1 | 2023年3月2日  | 陈超锋 | 添加Android串口筛选内容 |
+| v1.2 | 2023年6月19日  | 陈超锋 | 添加和添加修改默认launcher的方法 |
 
 ## <span id="system">一、系统编译</span>
 
@@ -846,8 +847,12 @@ ceres-c3:/ # logcat | grep 3101
 ```
 
 ## 十、设置为软件默认的launcher
-> 设置系统的默认launcher有两种方法，一种是直接使用adb公管局进入系统的内部，将原先的launcher文件后缀由`apk`改为`apk111`等，这种方法就是让系统将原先的launcher不识别为android安装包，这种方法的弊端是，每烧录一次固件就需要修改一次，设备一旦增多，修改起来很麻烦；另外一种方法是直接修改android的源码，将原先的launcher设置为android launcher的代码注释掉
-### adb shell修改launcher
+:::tip
+设置系统的默认launcher有两种方法，一种是直接使用adb公管局进入系统的内部，将原先的launcher文件后缀由`apk`改为`apk111`等，这种方法就是让系统将原先的launcher不识别为android安装包，这种方法的弊端是，每烧录一次固件就需要修改一次，设备一旦增多，修改起来很麻烦；另外一种方法是直接修改android的源码，将原先的launcher设置为android launcher的代码注释掉。
+:::
+
+### 10.1 adb shell修改launcher
+
 ```shell
 # 首先获取系统权限，可以参考Android App通过adb shell推送到系统中
 PS C:\Users\ccf19> adb shell # 进入终端
@@ -874,7 +879,12 @@ mv Launcher3QuickStepGo.apk Launcher3QuickStepGo.apk111
 # 重启系统
 reboot
 ```
-### 源码修改launcher
+
+### 10.2 源码修改launcher
+:::tip
+使用该种方法，一劳永逸，当然不同版本的android系统可能修改的位置不一样，但大体而言，修改的方式是一致的
+:::
+
 - 修改AndroidManifest.xml
 ```shell
 cd packages/apps/Launcher3
