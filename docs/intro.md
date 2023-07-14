@@ -14,13 +14,18 @@ import {ProjectCard} from "../src/components/Project/index.js"
 -->
 import {ProjectDoubleCard, ProjectCard} from "../src/components/Project/index.js"
 
-<ProjectCard
+<ProjectDoubleCard
      children={{
         title: "hexapod开发笔记",
         description: "有关多足开发的一些笔记内容",
         link: "./category/hexapod开发笔记"
     }}
-></ProjectCard>
+    children1={{
+        title: "Linux相关",
+        description: "记录遇到的一些Linux开发问题",
+        link: "./category/Linux相关"
+    }}
+></ProjectDoubleCard>
 
 <ProjectDoubleCard
     children={{
