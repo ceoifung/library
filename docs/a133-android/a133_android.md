@@ -11,6 +11,38 @@ title: Android10系统板开发
 
 ## <span id="system">一、系统编译</span>
 
+### 前期虚拟机环境搭建
+如果不使用原先的linux虚拟机，要自己搭建的话，可以先安装如下命令
+```shell
+sudo apt-get install build-essential subversion git-core repo libncurses5-dev zlib1g-dev \
+    gawk flex quilt libssl-dev xsltproc libxml-parser-perl \
+    mercurial bzr ecj cvs unzip lib32z1 lib32z1-dev lib32stdc++6 libstdc++6 \
+    libncurses-dev zlib1g-dev gawk openssl libssl-dev linux-tools-common gperf -y
+```
+如果上述环境没有安装的话，可能会出现如下错误：
+```shell
+INFO: build arisc
+make: Entering directory '/home/ceoifung/workspace/a133/longan/brandy/arisc'
+arisc defconfig: generate ar100s/.config by sun50iw10p1_axp803_defconfig
+#
+# configuration written to .config
+#
+  CHK     include/generated/conf.h
+  CC       driver/intc/intc.o
+/bin/sh: 1: or32-elf-gcc: not found
+mv: cannot stat 'driver/intc/.intc.o.tmp': No such file or directory
+scripts/Makefile.build:103: recipe for target 'driver/intc/intc.o' failed
+make[3]: *** [driver/intc/intc.o] Error 1
+scripts/Makefile.build:146: recipe for target 'intc' failed
+make[2]: *** [intc] Error 2
+Makefile:91: recipe for target 'driver/obj-in.o' failed
+make[1]: *** [driver/obj-in.o] Error 2
+Makefile:9: recipe for target 'all' failed
+make: *** [all] Error 2
+make: Leaving directory '/home/ceoifung/workspace/a133/longan/brandy/arisc'
+INFO: mkarisc failed
+```
+
 ### 1.1 在longan目录下配置板子
 
 ```shell
