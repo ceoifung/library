@@ -39,6 +39,8 @@ jobs:
         with:
           node-version: 16.x
           cache: yarn
+      - name: remove yarn.lock
+        run: rm -rf yarn.lock
       - name: Install dependencies
         run: yarn
       - name: Build
