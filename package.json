@@ -1,6 +1,7 @@
 {
-  "name": "ceoifung",
+  "name": "libaray",
   "version": "0.0.0",
+  "prodcutName": "libaray",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",

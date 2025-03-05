@@ -3,7 +3,6 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-const path = require('path')
 const organizationName = "ceoifung";
 const projectName = "library";
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -44,13 +43,13 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-           editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`
+           editUrl: `https://github.com/${organizationName}/${projectName}/tree/master/`
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`
+          editUrl: `https://github.com/${organizationName}/${projectName}/tree/master/`
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -124,7 +123,7 @@ const config = {
             position: 'left',
             label: '文档',
           },
-          { to: '/blog', label: '博客', position: 'left' },
+          { href: 'https://blog.csdn.net/qq_41020634?type=blog', label: '博客', position: 'left' },
           {
             href: 'https://github.com/ceoifung',
             label: 'GitHub',
@@ -166,7 +165,7 @@ const config = {
             items: [
               {
                 label: '博客',
-                to: '/blog',
+                href: 'https://blog.csdn.net/qq_41020634?type=blog',
               },
               {
                 label: 'GitHub',
