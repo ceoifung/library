@@ -4,6 +4,8 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const path = require('path')
+const organizationName = "ceoifung";
+const projectName = "library";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '吾生也有涯',
@@ -11,17 +13,15 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: process.env.CI === 'true' && process.env.GITHUB_ACTIONS
-    ? 'https://ceoifung.github.io' // GitHub Pages URL
-    :  'http://192.168.3.249/', // 默认本地开发环境,
+  url: `https://${organizationName}.github.io`, // 默认本地开发环境,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: process.env.NODE_ENV == 'development' ? '/' : process.env.GITHUB_ACTIONS? "library":"/ceoifung/library/public",
+  baseUrl: `/${projectName}/`,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'ceoifung', // Usually your GitHub org/user name.
-  projectName: 'ceoifung', // Usually your repo name.
+  organizationName, // Usually your GitHub org/user name.
+  projectName, // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -43,15 +43,13 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'http://192.168.3.249:8081/ceoifung/library/blob/master/',
+           editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'http://192.168.3.249:8081/ceoifung/library/blob/master/',
+          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
