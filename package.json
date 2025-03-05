@@ -1,7 +1,7 @@
 {
-  "name": "libaray",
-  "version": "0.0.0",
-  "prodcutName": "libaray",
+  "name": "library",
+  "version": "0.0.1",
+  "prodcutName": "library",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
