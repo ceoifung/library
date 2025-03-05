@@ -23,3 +23,11 @@ pages:
     - public
   only:
     - master
+  # 设置环境变量
+  environment:
+    name: production
+    url: https://192.168.3.249:8081/ceoifung/library/public
+  # 设置环境变量
+  variables:
+    CI: true
+    GITLAB_CI: true

@@ -11,10 +11,12 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'http://192.168.3.249/',
+  url: process.env.CI === 'true' && process.env.GITHUB_ACTIONS
+    ? 'https://ceoifung.github.io' // GitHub Pages URL
+    :  'http://192.168.3.249/', // 默认本地开发环境,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: process.env.NODE_ENV == 'development' ? '/' : "/ceoifung/library/public",
+  baseUrl: process.env.NODE_ENV == 'development' ? '/' : process.env.GITHUB_ACTIONS? "library":"/ceoifung/library/public",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
