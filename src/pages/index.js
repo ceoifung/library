@@ -49,5 +49,5 @@ function HomepageHeader() {
 //   );
 // }
 export default function Home() {
-  return <Redirect to={process.env.NODE_ENV == 'development' ?'/docs/intro':'/ceoifung/library/public/docs/intro'} />;
+  return <Redirect to='/docs/intro' />;
 }
